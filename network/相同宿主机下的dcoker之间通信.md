@@ -38,7 +38,7 @@ docker run -itd --name cos2 centos:base /bin/bash -c 'while true;do echo 1;sleep
 ```shell
 [root@kube-master src]# brctl show
 docker0		8000.024250bc873d	no		veth4db29b2
-                                        veth96c7e85
+                                  veth96c7e85
 ```
 
 这两张网卡分别和两个容器的eth0组成了两对veth pair设备：veth4db29b2和cos1的eth0，veth96c7e85和cos2的eth0。
