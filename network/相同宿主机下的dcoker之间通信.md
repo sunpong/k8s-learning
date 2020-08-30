@@ -30,11 +30,9 @@ cos1:172.17.0.3
 
 cos1上查看：
 [root@691e3302003c /]# route
-Kernel IP routing table
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 default         _gateway        0.0.0.0         UG    0      0        0 eth0
 172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 eth0
-
 
 [root@691e3302003c /]# ifconfig
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
@@ -44,7 +42,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 4  bytes 250 (250.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
+        
 从路由得知，所有的包都是从eth0出去的，对于目的地址为172.17.0.0/16的IP，匹配的是第二条路由规则。
 
 宿主机上查看：
@@ -60,7 +58,7 @@ docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX packets 1499  bytes 8604516 (8.2 MiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
         
-所以，当从cos1上去ping cos2时，网络情况如下：
+所以，当从cos1上去ping cos2时，网络链路情况如下：
 cos1的eth0 -> docker0的veth4db29b2 -> docker0的veth96c7e85 -> cos2的eth0
 
 
