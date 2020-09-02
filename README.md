@@ -6,3 +6,10 @@
 3. falnnel的vxlan模式
 4. 
 
+
+
+## 学习计划
+1. kubelet上报节点信息
+2. client-go 调用k8s api（7天计划）
+3. 
+4.
